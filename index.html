@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tra cứu Ngân hàng Việt Nam</title>
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/51b1e0775b.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <h1>Tra cứu Ngân hàng Việt Nam</h1>
+    </header>
+    <div class="container">
+        <div class="search-section">
+            <label for="field">Chọn trường tra cứu:</label>
+            <select id="field">
+                <option value="full_vn_name">Tên đầy đủ (VN)</option>
+                <option value="full_name">Tên đầy đủ (EN)</option>
+                <option value="short_name">Tên ngắn</option>
+                <option value="swift_code">Mã SWIFT</option>
+                <option value="stock_code">Mã chứng khoán</option>
+                <option value="type">Loại ngân hàng</option>
+            </select>
+            <div class="search-input-wrapper">
+                <input type="text" id="searchInput" placeholder="Nhập từ khóa...">
+                <ul id="suggestions" class="suggestions"></ul>
+            </div>
+            <button onclick="searchBank()">Tra cứu</button>
+        </div>
+        <div class="result-section" id="result">
+            <table id="resultTable">
+                <thead>
+                    <tr>
+                        <th>Tên đầy đủ (VN)</th>
+                        <th>Tên đầy đủ (EN)</th>
+                        <th>Tên ngắn</th>
+                        <th>Mã chứng khoán & SWIFT</th>
+                        <th>Loại ngân hàng</th>
+                        <th>Website</th>
+                        <th>Ứng dụng</th>
+                    </tr>
+                </thead>
+                <tbody id="resultBody"></tbody>
+            </table>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

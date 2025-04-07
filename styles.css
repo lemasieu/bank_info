@@ -1,0 +1,228 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #0A2E4D 0%, #1A5C8A 100%);
+    color: #fff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+header {
+    background: linear-gradient(270deg, #006633, #00A859);
+    color: white;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.search-section {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    backdrop-filter: blur(10px);
+    position: relative; /* Đảm bảo search-section là gốc cho z-index */
+    z-index: 2000; /* Đặt z-index cao hơn result-section */
+}
+
+.search-section label {
+    font-weight: bold;
+    margin-right: 10px;
+    color: #fff;
+}
+
+.search-section select {
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    width: 95%;
+    max-width: 450px;
+    margin-bottom: 15px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="white" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+}
+
+.search-section select option {
+    background: #0A2E4D;
+    color: #fff;
+}
+
+.search-input-wrapper {
+    position: relative;
+    max-width: 550px;
+    width: 95%;
+}
+
+.search-section input {
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    width: 95%;
+    margin-bottom: 15px;
+}
+
+.search-section input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 3000; /* Đảm bảo khung gợi ý có z-index cao nhất */
+    display: none;
+}
+
+.suggestions li {
+    padding: 10px;
+    color: #0A2E4D;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    z-index: 3000;
+}
+
+.suggestions li:last-child {
+    border-bottom: none;
+    z-index: 3000;
+}
+
+.suggestions li:hover {
+    background: rgba(0, 166, 89, 0.2);
+    z-index: 3000;
+}
+
+.suggestions li.selected {
+    background: rgba(0, 166, 89, 0.3);
+    z-index: 3000;
+}
+
+.search-section button {
+    background: linear-gradient(90deg, #006633, #00A859);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.search-section button:hover {
+    background: linear-gradient(0deg, #004d26, #008c47);
+}
+
+.result-section {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 1000; /* Đặt z-index thấp hơn search-section và suggestions */
+}
+
+.result-section table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.result-section th, .result-section td {
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: left;
+}
+
+.result-section th {
+    background: linear-gradient(0deg, #006633, #00A859);
+    color: white;
+}
+
+.result-section td {
+    color: #fff;
+}
+
+.result-section a {
+    color: #00FF00;
+    text-decoration: none;
+}
+
+.result-section a:hover {
+    color: #ffffff;
+}
+
+/* CSS cho biểu tượng App Store và Google Play */
+.app-icons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.app-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+    position: relative;
+    overflow: hidden;
+}
+
+.app-icon.app-store::before {
+    background-size: contain;
+}
+
+.app-icon.google-play::before {
+    background-size: contain;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    header h1 {
+        font-size: 20px;
+    }
+    .search-section select, .search-input-wrapper {
+        max-width: 100%;
+    }
+    .search-section button {
+        width: 100%;
+    }
+    .result-section th, .result-section td {
+        padding: 8px;
+        font-size: 14px;
+    }
+}
