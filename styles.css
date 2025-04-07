@@ -180,6 +180,11 @@ header h1 {
     color: #ffffff;
 }
 
+/* Highlight dòng có next_name */
+.highlight-next-name td {
+    color: #000000; /* Màu đen báo ngân hàng đã dừng hoạt động */
+}
+
 /* CSS cho biểu tượng App Store và Google Play */
 .app-icons {
     display: flex;

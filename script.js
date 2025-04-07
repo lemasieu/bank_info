@@ -29,6 +29,10 @@ fetch('data.json')
 
             filteredBanks.forEach(bank => {
                 const row = document.createElement('tr');
+                // Nếu có next_name, thêm class highlight-next-name
+                if (bank.next_name) {
+                    row.classList.add('highlight-next-name');
+                }
                 row.innerHTML = `
                     <td>${bank.full_vn_name}</td>
                     <td>${bank.full_name}</td>
